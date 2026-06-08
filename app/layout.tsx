@@ -17,7 +17,7 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "The Hidden Cost | How Much Water Does AI Use?",
+  title: "What It Costs | How Much Water Does AI Use?",
   description:
     "Every AI query consumes freshwater for data centre cooling. Calculate how much water your ChatGPT, Claude, or Gemini usage costs — backed by peer-reviewed research.",
   keywords: [
@@ -30,13 +30,13 @@ export const metadata: Metadata = {
     "LLM water cost",
     "AI sustainability",
   ],
-  authors: [{ name: "The Hidden Cost" }],
+  authors: [{ name: "What It Costs" }],
   openGraph: {
-    title: "The Hidden Cost — AI Isn't Free. It Bills the Planet.",
+    title: "What It Costs — AI Isn't Free. It Bills the Planet.",
     description:
       "Every answer has a price. Calculate the freshwater cost of your AI usage.",
     url: SITE_URL,
-    siteName: "The Hidden Cost",
+    siteName: "What It Costs",
     images: [
       {
         url: "/og-image.png",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "The Hidden Cost | AI Water Usage Calculator",
+    title: "What It Costs | AI Water Usage Calculator",
     description: "Your ChatGPT session used ~500ml of water. Calculate yours.",
     images: ["/og-image.png"],
   },

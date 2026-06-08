@@ -16,7 +16,7 @@ export default function Hero() {
     <section className="relative flex min-h-screen flex-col items-center justify-center px-6 py-20">
       <div className="absolute left-6 top-6">
         <span className="font-display text-lg font-semibold tracking-tight text-teal-400">
-          The Hidden Cost
+          What It Costs
         </span>
       </div>
 

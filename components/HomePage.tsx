@@ -39,7 +39,7 @@ export default function HomePage({ initialState }: HomePageProps) {
       <GlobalScale mlPerSession={mlTotal} queryCount={state.queryCount} />
       <Methodology />
       <footer className="border-t border-teal-900/30 px-6 py-8 text-center text-sm text-slate-500">
-        <p>The Hidden Cost — AI water awareness tool. Estimates only.</p>
+        <p>What It Costs — AI water awareness tool. Estimates only.</p>
       </footer>
     </main>
   );
