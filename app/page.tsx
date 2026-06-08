@@ -3,6 +3,7 @@ import CalculatorExperience from "@/components/CalculatorExperience";
 import Hero from "@/components/Hero";
 import Methodology from "@/components/Methodology";
 import { calcWaterCost } from "@/lib/calculations";
+import { buildOgImageUrl } from "@/lib/og-url";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/seo";
 import {
   hasCalculatorSearchParams,
@@ -26,6 +27,8 @@ export async function generateMetadata({
   const { litresTotal } = calcWaterCost(state);
   const title = `~${litresTotal}L of water — ${SITE_NAME}`;
   const description = `This AI session used an estimated ${litresTotal} litres of freshwater for data centre cooling. ${SITE_DESCRIPTION}`;
+  const ogImageUrl = buildOgImageUrl(state);
+  const ogImageAlt = `Estimated ${litresTotal} litres of freshwater for an AI session`;
 
   return {
     title: { absolute: title },
@@ -37,10 +40,10 @@ export async function generateMetadata({
       siteName: SITE_NAME,
       images: [
         {
-          url: "/og-image.png",
+          url: ogImageUrl,
           width: 1200,
           height: 630,
-          alt: "Estimated AI water usage",
+          alt: ogImageAlt,
         },
       ],
       type: "website",
@@ -49,7 +52,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title,
       description,
-      images: ["/og-image.png"],
+      images: [ogImageUrl],
     },
     alternates: {
       canonical: SITE_URL,

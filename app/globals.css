@@ -54,6 +54,11 @@ input[type="range"] {
   outline: none;
 }
 
+input[type="range"]:focus-visible {
+  outline: 2px solid var(--electric-blue);
+  outline-offset: 4px;
+}
+
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;

@@ -33,7 +33,7 @@ export default function GlobalScale({ mlPerSession, queryCount }: GlobalScalePro
   }, [hasAnimated]);
 
   return (
-    <section id="global-scale" className="px-6 py-20">
+    <section id="global-scale" className="px-6 pt-8 pb-20">
       <div className="mx-auto max-w-3xl">
         <h2 className="font-display text-3xl font-bold text-off-white sm:text-4xl">
           At global scale

@@ -22,14 +22,22 @@ export function calcWaterCost({
   const wue = REGION_WUE[region].wue;
   const multiplier = QUERY_TYPE_MULTIPLIER[queryType].multiplier;
 
-  const mlTotal =
+  const rawMl =
     profile.mlPerQuery * queryCount * multiplier +
     profile.kwhPerQuery * queryCount * multiplier * wue * 1000;
+  const mlTotal = Math.round(rawMl);
 
   return {
-    mlTotal: Math.round(mlTotal),
+    mlTotal,
     litresTotal: parseFloat((mlTotal / 1000).toFixed(2)),
   };
+}
+
+export function formatWaterAmount(mlTotal: number): string {
+  if (mlTotal < 1000) {
+    return `~${mlTotal}ml`;
+  }
+  return `~${parseFloat((mlTotal / 1000).toFixed(2))}L`;
 }
 
 export function getComparisons(mlTotal: number) {
