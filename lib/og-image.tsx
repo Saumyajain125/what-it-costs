@@ -166,7 +166,7 @@ export function OgImage({
               fontFamily: "DM Sans",
             }}
           >
-            {`${modelLabel} · ${queryCount} ${queryCount === 1 ? "query" : "queries"}`}
+            {`Your ${modelLabel} session used ~${mlTotal >= 1000 ? `${litresTotal}L` : `${mlTotal}ml`} of water`}
           </span>
           <span
             style={{
@@ -175,7 +175,18 @@ export function OgImage({
               fontFamily: "DM Sans",
             }}
           >
-            {`${queryLabel} · ${regionLabel}`}
+            {`${queryLabel} · ${regionLabel} · ${queryCount} ${queryCount === 1 ? "query" : "queries"}`}
+          </span>
+          <span
+            style={{
+              marginTop: 8,
+              fontSize: 20,
+              color: "#475569",
+              fontFamily: "DM Sans",
+              fontStyle: "italic",
+            }}
+          >
+            AI isn&apos;t free — it just bills the planet.
           </span>
         </div>
       </div>

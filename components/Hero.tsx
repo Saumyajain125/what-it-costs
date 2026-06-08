@@ -18,21 +18,24 @@ export default function Hero() {
 
       <div className="mx-auto max-w-3xl text-center">
         <h1 className="font-display text-4xl font-bold leading-tight tracking-tight text-off-white sm:text-5xl md:text-6xl lg:text-7xl">
-          {headline.map((word, i) => (
-            <motion.span
-              key={word}
-              className="mr-[0.25em] inline-block"
-              initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.5,
-                delay: prefersReducedMotion ? 0 : i * 0.12,
-                ease: "easeOut",
-              }}
-            >
-              {word}
-            </motion.span>
-          ))}
+          <span className="sr-only">Every answer costs water.</span>
+          <span aria-hidden="true">
+            {headline.map((word, i) => (
+              <motion.span
+                key={word}
+                className="mr-[0.25em] inline-block"
+                initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.5,
+                  delay: prefersReducedMotion ? 0 : i * 0.12,
+                  ease: "easeOut",
+                }}
+              >
+                {word}
+              </motion.span>
+            ))}
+          </span>
         </h1>
 
         <motion.p

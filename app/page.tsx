@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import CalculatorExperience from "@/components/CalculatorExperience";
+import FAQ from "@/components/FAQ";
 import Hero from "@/components/Hero";
 import Methodology from "@/components/Methodology";
 import { calcWaterCost } from "@/lib/calculations";
@@ -73,6 +74,7 @@ export default async function Page({
       <Hero />
       <CalculatorExperience initialState={initialState} />
       <Methodology />
+      <FAQ />
       <footer className="border-t border-teal-900/30 px-6 py-8 text-center text-sm text-slate-500">
         <p>{SITE_NAME} — AI water awareness tool. Estimates only.</p>
         <p className="mx-auto mt-4 max-w-md text-xs text-slate-600">

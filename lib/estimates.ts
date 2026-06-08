@@ -29,7 +29,7 @@ export const REGION_WUE = {
   us: { label: "United States", wue: 1.8 },
   eu: { label: "Europe", wue: 1.2 },
   asia: { label: "Asia", wue: 2.1 },
-  india: { label: "India", wue: 2.4 },
+  india: { label: "India", wue: 2.5 },
 } as const;
 
 export const QUERY_TYPE_MULTIPLIER = {

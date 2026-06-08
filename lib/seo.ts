@@ -1,5 +1,7 @@
+import { FAQ_ITEMS } from "@/lib/faq";
+
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://yourdomain.com";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://whatitcosts.vercel.app";
 
 export const SITE_NAME = "What It Costs";
 
@@ -33,32 +35,14 @@ export const jsonLd = {
     },
     {
       "@type": "FAQPage",
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: "How much water does AI use per query?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Estimates vary by model and query type, but a typical ChatGPT session can consume hundreds of millilitres of freshwater when cooling and electricity-linked water use at data centres are combined.",
-          },
+      mainEntity: FAQ_ITEMS.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
         },
-        {
-          "@type": "Question",
-          name: "How is the water cost calculated?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "We combine per-query water estimates from peer-reviewed research with regional Water Usage Effectiveness (WUE) factors for data centre cooling, adjusted by query type multipliers for long-form, code, and image generation workloads.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Are these AI water usage figures exact?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "No. These are transparent estimates based on published research. No AI company publicly discloses per-query water data, so results should be treated as directional rather than precise measurements.",
-          },
-        },
-      ],
+      })),
     },
   ],
 };

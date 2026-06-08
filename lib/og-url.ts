@@ -1,4 +1,5 @@
 import type { CalculatorState } from "@/lib/calculator-state";
+import { SITE_URL } from "@/lib/seo";
 
 export function stateToSearchParams(state: CalculatorState): URLSearchParams {
   return new URLSearchParams({
@@ -10,5 +11,5 @@ export function stateToSearchParams(state: CalculatorState): URLSearchParams {
 }
 
 export function buildOgImageUrl(state: CalculatorState): string {
-  return `/api/og?${stateToSearchParams(state).toString()}`;
+  return `${SITE_URL}/api/og?${stateToSearchParams(state).toString()}`;
 }

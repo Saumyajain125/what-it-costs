@@ -21,10 +21,22 @@ export default function Methodology() {
             </h3>
             <div className="mt-4 space-y-4 text-base leading-relaxed text-slate-400">
               <p>
-                For each query, we start with a base water estimate (ml per
-                query) from peer-reviewed research, then add the water
-                footprint of electricity consumed, using the regional Water
+                For each query, we start with a base water estimate (millilitres
+                per query) drawn from peer-reviewed research — primarily{" "}
+                <em>Making AI Less &ldquo;Thirsty&rdquo;</em> by Li et al.
+                (2023), which quantified the freshwater footprint of large
+                language model inference. We then add the water embedded in the
+                electricity consumed by that query, using the regional Water
                 Usage Effectiveness (WUE) factor for data centres.
+              </p>
+              <p>
+                WUE measures how many litres of water a facility consumes per
+                kilowatt-hour of IT energy. Typical values vary by climate and
+                cooling strategy: the United States averages roughly 1.8 L/kWh,
+                Europe around 1.2 L/kWh, broader Asia-Pacific regions about 2.1
+                L/kWh, and India approximately 2.5 L/kWh — reflecting hotter,
+                drier conditions where evaporative cooling is more common. This
+                calculator applies the WUE for the region you select.
               </p>
               <p>
                 The formula:{" "}
@@ -34,10 +46,31 @@ export default function Methodology() {
                 </code>
               </p>
               <p>
-                Query type multipliers account for the extra compute required
-                by long-form answers, code generation, and image synthesis.
-                Regional WUE reflects how water-intensive cooling is in
-                different parts of the world.
+                Query type multipliers account for how much extra compute
+                different tasks require. A simple Q&amp;A uses the baseline (×1).
+                Long-form essays and reports demand more tokens and GPU time
+                (×2.5). Code generation sits between the two (×1.8). Image
+                synthesis is the most intensive (×6), since generating pixels
+                requires sustained high-power GPU workloads and proportionally
+                more cooling.
+              </p>
+              <p>
+                We distinguish two kinds of water use. <strong>Direct</strong>{" "}
+                water is consumed on-site for evaporative cooling — water that
+                evaporates from cooling towers and is lost from the local
+                watershed. <strong>Indirect</strong> water is used upstream to
+                generate the electricity powering the servers, especially at
+                thermoelectric power plants. Both count toward the total
+                freshwater footprint of an AI query.
+              </p>
+              <p>
+                Training a large language model from scratch can consume
+                millions of litres of water — orders of magnitude more than any
+                single inference session. This tool measures{" "}
+                <strong>inference only</strong> (the queries you run day to day),
+                because that is what most users can control and because
+                per-query inference estimates are better supported by published
+                data. Training costs are a separate, much larger discussion.
               </p>
             </div>
           </div>
