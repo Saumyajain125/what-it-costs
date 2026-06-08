@@ -72,6 +72,9 @@ export default async function Page({
       <Methodology />
       <footer className="border-t border-teal-900/30 px-6 py-8 text-center text-sm text-slate-500">
         <p>{SITE_NAME} — AI water awareness tool. Estimates only.</p>
+        <p className="mx-auto mt-4 max-w-md text-xs text-slate-600">
+          This is not generated via AI.
+        </p>
       </footer>
     </main>
   );
