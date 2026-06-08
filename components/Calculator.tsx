@@ -1,5 +1,6 @@
 "use client";
 
+import type { CalculatorState } from "@/lib/calculator-state";
 import {
   MODEL_PROFILES,
   QUERY_TYPE_MULTIPLIER,
@@ -8,13 +9,6 @@ import {
   type QueryTypeKey,
   type RegionKey,
 } from "@/lib/estimates";
-
-export interface CalculatorState {
-  model: ModelKey;
-  queryCount: number;
-  queryType: QueryTypeKey;
-  region: RegionKey;
-}
 
 interface CalculatorProps {
   state: CalculatorState;

@@ -8,10 +8,6 @@ const headline = ["Every", "answer", "costs", "water."];
 export default function Hero() {
   const prefersReducedMotion = useReducedMotion();
 
-  const scrollToCalculator = () => {
-    document.getElementById("calculator")?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <section className="relative flex min-h-screen flex-col items-center justify-center px-6 py-20">
       <div className="absolute left-6 top-6">
@@ -69,15 +65,15 @@ export default function Hero() {
           <WaterDrop fillPercent={20} size={160} showLabel={false} />
         </motion.div>
 
-        <motion.button
-          onClick={scrollToCalculator}
-          className="mt-10 rounded-full bg-teal-600 px-8 py-3 text-base font-medium text-white transition-colors hover:bg-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-offset-2 focus:ring-offset-ocean-dark"
+        <motion.a
+          href="#calculator"
+          className="mt-10 inline-block rounded-full bg-teal-600 px-8 py-3 text-base font-medium text-white transition-colors hover:bg-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-offset-2 focus:ring-offset-ocean-dark"
           initial={prefersReducedMotion ? false : { opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: prefersReducedMotion ? 0 : 1.2 }}
         >
           Calculate my usage →
-        </motion.button>
+        </motion.a>
       </div>
     </section>
   );

@@ -1,18 +1,19 @@
 "use client";
 
 import { useCallback, useMemo, useState } from "react";
-import Calculator, { type CalculatorState } from "@/components/Calculator";
+import Calculator from "@/components/Calculator";
 import GlobalScale from "@/components/GlobalScale";
-import Hero from "@/components/Hero";
-import Methodology from "@/components/Methodology";
 import Results from "@/components/Results";
 import { calcWaterCost } from "@/lib/calculations";
+import type { CalculatorState } from "@/lib/calculator-state";
 
-interface HomePageProps {
+interface CalculatorExperienceProps {
   initialState: CalculatorState;
 }
 
-export default function HomePage({ initialState }: HomePageProps) {
+export default function CalculatorExperience({
+  initialState,
+}: CalculatorExperienceProps) {
   const [state, setState] = useState<CalculatorState>(initialState);
 
   const updateState = useCallback((newState: CalculatorState) => {
@@ -32,15 +33,10 @@ export default function HomePage({ initialState }: HomePageProps) {
   );
 
   return (
-    <main className="bg-ocean-dark">
-      <Hero />
+    <>
       <Calculator state={state} onChange={updateState} />
       <Results mlTotal={mlTotal} litresTotal={litresTotal} />
       <GlobalScale mlPerSession={mlTotal} queryCount={state.queryCount} />
-      <Methodology />
-      <footer className="border-t border-teal-900/30 px-6 py-8 text-center text-sm text-slate-500">
-        <p>What It Costs — AI water awareness tool. Estimates only.</p>
-      </footer>
-    </main>
+    </>
   );
 }

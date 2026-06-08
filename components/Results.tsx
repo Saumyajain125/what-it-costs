@@ -25,10 +25,6 @@ export default function Results({ mlTotal, litresTotal }: ResultsProps) {
     }
   };
 
-  const scrollToGlobal = () => {
-    document.getElementById("global-scale")?.scrollIntoView({ behavior: "smooth" });
-  };
-
   if (mlTotal <= 0) return null;
 
   return (
@@ -96,13 +92,12 @@ export default function Results({ mlTotal, litresTotal }: ResultsProps) {
             >
               Share this result
             </button>
-            <button
-              type="button"
-              onClick={scrollToGlobal}
-              className="rounded-full bg-teal-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-400"
+            <a
+              href="#global-scale"
+              className="rounded-full bg-teal-600 px-6 py-3 text-center text-sm font-medium text-white transition-colors hover:bg-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-400"
             >
               See the global picture ↓
-            </button>
+            </a>
           </div>
         </div>
       </motion.section>

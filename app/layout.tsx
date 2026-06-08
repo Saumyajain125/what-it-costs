@@ -1,25 +1,42 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { DM_Sans, Fraunces } from "next/font/google";
-import { jsonLd, SITE_URL } from "@/lib/seo";
+import {
+  jsonLd,
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_URL,
+} from "@/lib/seo";
 import "./globals.css";
 
 const fraunces = Fraunces({
   variable: "--font-display",
   subsets: ["latin"],
   display: "swap",
+  preload: true,
 });
 
 const dmSans = DM_Sans({
   variable: "--font-body",
   subsets: ["latin"],
   display: "swap",
+  preload: true,
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#0d9488",
+  colorScheme: "dark",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "What It Costs | How Much Water Does AI Use?",
-  description:
-    "Every AI query consumes freshwater for data centre cooling. Calculate how much water your ChatGPT, Claude, or Gemini usage costs — backed by peer-reviewed research.",
+  title: {
+    default: `${SITE_NAME} | How Much Water Does AI Use?`,
+    template: `%s | ${SITE_NAME}`,
+  },
+  description: SITE_DESCRIPTION,
+  applicationName: SITE_NAME,
   keywords: [
     "AI water usage",
     "ChatGPT water consumption",
@@ -30,13 +47,20 @@ export const metadata: Metadata = {
     "LLM water cost",
     "AI sustainability",
   ],
-  authors: [{ name: "What It Costs" }],
+  authors: [{ name: SITE_NAME }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   openGraph: {
-    title: "What It Costs — AI Isn't Free. It Bills the Planet.",
+    title: `${SITE_NAME} — AI Isn't Free. It Bills the Planet.`,
     description:
       "Every answer has a price. Calculate the freshwater cost of your AI usage.",
     url: SITE_URL,
-    siteName: "What It Costs",
+    siteName: SITE_NAME,
     images: [
       {
         url: "/og-image.png",
@@ -50,21 +74,29 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "What It Costs | AI Water Usage Calculator",
+    title: `${SITE_NAME} | AI Water Usage Calculator`,
     description: "Your ChatGPT session used ~500ml of water. Calculate yours.",
     images: ["/og-image.png"],
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true },
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
   alternates: {
     canonical: SITE_URL,
   },
   icons: {
     icon: "/favicon.svg",
+    apple: "/favicon.svg",
   },
+  manifest: "/manifest.webmanifest",
+  category: "technology",
 };
 
 export default function RootLayout({
@@ -77,13 +109,19 @@ export default function RootLayout({
       lang="en"
       className={`${fraunces.variable} ${dmSans.variable} h-full antialiased`}
     >
-      <head>
+      <body className="min-h-full flex flex-col font-body">
+        <a
+          href="#calculator"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-teal-600 focus:px-4 focus:py-2 focus:text-white"
+        >
+          Skip to calculator
+        </a>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-      </head>
-      <body className="min-h-full flex flex-col font-body">{children}</body>
+        {children}
+      </body>
     </html>
   );
 }

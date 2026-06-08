@@ -1,12 +1,10 @@
-import type { CalculatorState } from "@/components/Calculator";
+import {
+  DEFAULT_STATE,
+  type CalculatorState,
+} from "@/lib/calculator-state";
 import type { ModelKey, QueryTypeKey, RegionKey } from "@/lib/estimates";
 
-export const DEFAULT_STATE: CalculatorState = {
-  model: "gpt-4o",
-  queryCount: 10,
-  queryType: "simple",
-  region: "us",
-};
+export { DEFAULT_STATE };
 
 function isValidModel(v: string | undefined): v is ModelKey {
   return v === "gpt-4o" || v === "gpt-3.5" || v === "claude" || v === "gemini";
@@ -43,4 +41,15 @@ export function parseStateFromSearchParams(
       : DEFAULT_STATE.queryType,
     region: isValidRegion(region) ? region : DEFAULT_STATE.region,
   };
+}
+
+export function hasCalculatorSearchParams(
+  params: Record<string, string | string[] | undefined>
+): boolean {
+  return (
+    typeof params.model === "string" ||
+    typeof params.queryCount === "string" ||
+    typeof params.queryType === "string" ||
+    typeof params.region === "string"
+  );
 }

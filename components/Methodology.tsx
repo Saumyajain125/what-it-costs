@@ -1,12 +1,6 @@
-"use client";
-
 import { SOURCES } from "@/lib/estimates";
 
 export default function Methodology() {
-  const scrollToCalculator = () => {
-    document.getElementById("calculator")?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <section className="px-6 py-20">
       <div className="mx-auto max-w-4xl">
@@ -85,13 +79,12 @@ export default function Methodology() {
         </div>
 
         <div className="mt-8 text-center">
-          <button
-            type="button"
-            onClick={scrollToCalculator}
-            className="rounded-full border border-teal-700 px-6 py-3 text-sm font-medium text-teal-300 transition-colors hover:border-teal-500 hover:text-teal-200 focus:outline-none focus:ring-2 focus:ring-teal-400"
+          <a
+            href="#calculator"
+            className="inline-block rounded-full border border-teal-700 px-6 py-3 text-sm font-medium text-teal-300 transition-colors hover:border-teal-500 hover:text-teal-200 focus:outline-none focus:ring-2 focus:ring-teal-400"
           >
             Recalculate ↑
-          </button>
+          </a>
         </div>
       </div>
     </section>
