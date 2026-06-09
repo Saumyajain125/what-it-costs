@@ -6,7 +6,7 @@ export const SITE_URL =
 export const SITE_NAME = "What It Costs";
 
 export const SITE_DESCRIPTION =
-  "Every AI query consumes freshwater for data centre cooling. Calculate how much water your ChatGPT, Claude, or Gemini usage costs — backed by peer-reviewed research.";
+  "Every AI query consumes freshwater to cool data centres. Calculate your ChatGPT, Claude, or Gemini water footprint — backed by research.";
 
 export const jsonLd = {
   "@context": "https://schema.org",

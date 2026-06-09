@@ -36,6 +36,13 @@ export default function RootLayout({
       lang="en"
       className={`${fraunces.variable} ${dmSans.variable} h-full antialiased`}
     >
+      <head>
+        <link
+          rel="sitemap"
+          type="application/xml"
+          href="/sitemap.xml"
+        />
+      </head>
       <body className="min-h-full flex flex-col font-body">
         <a
           href="#calculator"
